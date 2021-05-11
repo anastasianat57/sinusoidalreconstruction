@@ -1,0 +1,91 @@
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>A SINUSOIDAL SIGNAL RECONSTRUCTIONMETHOD FOR THE INVERSION OF THE MELSPECTROGRAM</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: auto;
+      padding: 5%;
+      max-width: 1000px;
+    }
+    audio {
+      width: 250px;
+    }
+    img {
+      width: 80%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    td img {
+      width: 100%;
+    }
+    table {
+      max-width: 100%;
+    }
+    h1 {
+      font-size: 35px;
+    }
+    h2 {
+      font-size: 25px;
+      font-weight: normal;
+    }
+    p {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div style="max-width: 90%; margin-right: auto; margin-left:auto;">
+  <h1 style="text-align:center; font-size: 40px;">A sinusoidal signal reconstruction for the inversion of the mel spectrogram</h1>
+</div>
+
+  <p> LF: Low Frequency </p>
+  <p> MF: Medium Frequency </p>
+  <p> HF: High Frequency </p>
+
+
+  <table align="center">
+      <tr>
+        <td></td>
+        <td align="center">Original Sound</td>
+        <td align="center">WaveNet</td>
+        <td align="center">Sinusoidal Model</td>
+      </tr>
+      <tr>
+        <td>Bass LF</td>
+        <td><audio controls> <source src="OriginalSounds/bass_electronic_025-044-075.wav" type="audio/wav"> </audio></td>
+        <td><audio controls> <source src="WaveNet/bass_electronic_025-044-075.wav" type="audio/wav"> </audio></td>
+        <td><audio controls> <source src="SinusoidalModel/bass_electronic_025-044-075.wav" type="audio/wav"> </audio></td>
+      </tr>
+      <tr>
+        <td>Bass MF</td>
+        <td><audio controls> <source src="OriginalSounds/bass_electronic_025-051-100.wav" type="audio/wav"> </audio></td>
+        <td><audio controls> <source src="WaveNet/bass_electronic_025-051-100.wav" type="audio/wav"> </audio></td>
+        <td><audio controls> <source src="SinusoidalModel/bass_electronic_025-051-100.wav" type="audio/wav"> </audio></td>
+      </tr>
+      <tr>
+        <td>Bass HF</td>
+        <td><audio controls> <source src="OriginalSounds/bass_electronic_025-063-100.wav" type="audio/wav"> </audio></td>
+        <td><audio controls> <source src="WaveNet/bass_electronic_025-063-100.wav" type="audio/wav"> </audio></td>
+        <td><audio controls> <source src="SinusoidalModel/bass_electronic_025-044-075.wav" type="audio/wav"> </audio></td>
+      </tr>
+
+    </table>
+
+  <script>
+    let players = Array.prototype.slice.call(document.querySelectorAll('audio'));
+    players.forEach(player => {
+        player.addEventListener('play', event => {
+            players.forEach(p => {
+                if (player != p) {p.pause();}
+            });
+        });
+    });
+  </script>
+
+</body>
+</html>
